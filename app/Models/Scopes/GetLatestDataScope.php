@@ -10,6 +10,7 @@ class GetLatestDataScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        $builder->orderBy('id', 'desc');
+        if($builder->getQuery()->joins === null)
+            $builder->orderBy('id', 'desc');
     }
 }
