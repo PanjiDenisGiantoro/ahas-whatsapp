@@ -1,0 +1,90 @@
+[30-Mar-2023 13:17:07 UTC] PHP Notice:  require(): read of 841708 bytes failed with errno=14 Bad address in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 29
+[30-Mar-2023 20:21:38 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 1439 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Illuminate\\Cons...')
+#4 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Console/Command.php(10): spl_autoload_call('Illuminate\\Cons...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autol in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Console/Command.php on line 10
+[30-Mar-2023 20:32:09 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 16316 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Illuminate\\Data...')
+#4 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(27): spl_autoload_call('Illuminate\\Data...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Compos in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php on line 27
+[30-Mar-2023 13:35:16 UTC] PHP Notice:  include(): read of 4597 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php on line 571
+[30-Mar-2023 13:35:16 UTC] PHP Warning:  include(): Failed opening '/home/prouditc/public_html/awas/vendor/composer/../laravel/framework/src/Illuminate/Contracts/Container/Container.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php on line 571
+[30-Mar-2023 13:35:16 UTC] PHP Fatal error:  Uncaught Error: Interface 'Illuminate\Contracts\Container\Container' not found in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php:17
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#2 [internal function]: Composer\Autoload\ClassLoader->loadClass('Illuminate\\Cont...')
+#3 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(29): spl_autoload_call('Illuminate\\Cont...')
+#4 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#6 [internal function]: Composer\Autoload\ClassLoader->loadClass('Illuminate\\Foun...')
+#7 /home/prouditc/public_html/awas/bootstrap/app.php(14): spl_autoload in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 17
+[30-Mar-2023 13:46:03 UTC] PHP Notice:  require(): read of 514 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[30-Mar-2023 13:46:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/prouditc/public_html/awas/vendor/composer/../facade/flare-client-php/src/helpers.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[30-Mar-2023 13:49:11 UTC] PHP Notice:  require(): read of 546796 bytes failed with errno=14 Bad address in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 29
+[30-Mar-2023 13:50:03 UTC] PHP Notice:  require(): read of 79852 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 29
+[30-Mar-2023 13:50:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/prouditc/public_html/awas/vendor/composer/autoload_static.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 29
+[31-Mar-2023 14:31:20 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 32014 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\D...')
+#4 /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Carbon.php(510): spl_autoload_call('Carbon\\Traits\\D...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFi in /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Carbon.php on line 510
+[31-Mar-2023 14:31:20 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 32014 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\D...')
+#4 /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Carbon.php(510): spl_autoload_call('Carbon\\Traits\\D...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFi in /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Carbon.php on line 510
+[03-Apr-2023 22:29:39 UTC] PHP Notice:  require(): read of 27621 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[10-Apr-2023 08:41:07 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 7389 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\W...')
+#4 /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Traits/Date.php(527): spl_autoload_call('Carbon\\Traits\\W...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\inclu in /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Traits/Date.php on line 527
+[10-Apr-2023 03:38:18 UTC] PHP Notice:  require(): read of 5054 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php on line 72
+[10-Apr-2023 03:38:18 UTC] PHP Fatal error:  require(): Failed opening required '/home/prouditc/public_html/awas/config/database.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php on line 72
+[14-Apr-2023 23:12:26 UTC] PHP Notice:  include(): read of 12448 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php on line 571
+[14-Apr-2023 23:12:26 UTC] PHP Warning:  include(): Failed opening '/home/prouditc/public_html/awas/vendor/composer/../vlucas/phpdotenv/src/Parser/EntryParser.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php on line 571
+[14-Apr-2023 23:12:28 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('config')
+#1 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build('config')
+#2 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\Container\Container->make('config', Array)
+#5 /home/prouditc/public_html/awas/vendor/laravel/frame in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[16-Apr-2023 04:37:20 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 26232 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\C...')
+#4 /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Traits/Date.php(527): spl_autoload_call('Carbon\\Traits\\C...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\incl in /home/prouditc/public_html/awas/vendor/nesbot/carbon/src/Carbon/Traits/Date.php on line 527
+[22-Apr-2023 01:14:39 UTC] PHP Notice:  require(): read of 167 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[22-Apr-2023 01:14:39 UTC] PHP Fatal error:  require(): Failed opening required '/home/prouditc/public_html/awas/vendor/composer/../guzzlehttp/promises/src/functions_include.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[09-May-2023 04:04:03 UTC] PHP Notice:  require(): read of 396 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[09-May-2023 04:04:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/prouditc/public_html/awas/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53
+[12-May-2023 14:55:17 UTC] PHP Notice:  require(): read of 84965 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/autoload_real.php on line 53

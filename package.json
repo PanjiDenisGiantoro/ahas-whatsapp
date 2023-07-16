@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "@adiwajshing/baileys": "github:WhiskeySockets/Baileys",
+    "@whiskeysockets/baileys": "^6.3.1",
+    "crypto-js": "^4.1.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.4.2",
+    "link-preview-js": "^3.0.4",
+    "mysql2": "^2.3.3",
+    "node-cron": "^3.0.1",
+    "pino": "^8.3.0",
+    "pino-pretty": "^8.1.0",
+    "qrcode": "^1.5.1",
+    "socket.io": "^4.5.1"
+  },
+  "name": "wamd",
+  "version": "4.2.1",
+  "description": "WanoJs Whatsapp Api Js Client Server , For More Information Or Help Contact To +6285608014111",
+  "main": "server.js",
+  "author": "WanoJs <4bdulloh.aqil@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "win-dev": "set NODE_ENV=development&&nodemon src/index",
+    "dev": "NODE_ENV=development node src/index",
+    "start": "NODE_ENV=production node src/index"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "credentials/*"
+    ]
+  }
+}

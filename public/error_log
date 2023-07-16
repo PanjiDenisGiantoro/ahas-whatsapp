@@ -1,0 +1,17 @@
+[10-Apr-2023 03:34:04 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('config')
+#1 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build('config')
+#2 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\Container\Container->make('config', Array)
+#5 /home/prouditc/public_html/awas/vendor/laravel/frame in /home/prouditc/public_html/awas/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[26-Apr-2023 03:02:11 Asia/Jakarta] PHP Fatal error:  During class fetch: Uncaught ErrorException: include(): read of 8453 bytes failed with errno=12 Cannot allocate memory in /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php:571
+Stack trace:
+#0 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'include(): read...', '/home/prouditc/...', 571, Array)
+#1 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include()
+#2 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile('/home/prouditc/...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('Symfony\\Contrac...')
+#4 /home/prouditc/public_html/awas/vendor/symfony/translation/IdentityTranslator.php(23): spl_autoload_call('Symfony\\Contrac...')
+#5 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(571): include('/home/prouditc/...')
+#6 /home/prouditc/public_html/awas/vendor/composer/ClassLoader.php(428): Composer\Autoload\includ in /home/prouditc/public_html/awas/vendor/symfony/translation/IdentityTranslator.php on line 23

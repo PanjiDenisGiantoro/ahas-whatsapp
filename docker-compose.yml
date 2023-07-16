@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  wanojs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aqilspc/wanojs-app:latest
+    container_name: wanojs-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: wanojs-app
+      SERVICE_TAGS: wanojs-app
+    working_dir: /var/www/wanojs-app
+    volumes:
+      - ./:/var/www/wanojs-app
+    networks:
+      - webinar_default
+  #Nginx Service
+  nginx-wanojs-app:
+    image: nginx:alpine
+    container_name: nginx-wanojs-app
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8300:8300"
+    volumes:
+      - ./:/var/www/wanojs-app
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - webinar_default
+networks:
+  webinar_default:
+    #driver: bridge
+    external: true
