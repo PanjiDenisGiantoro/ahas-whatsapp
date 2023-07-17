@@ -105,12 +105,11 @@ class GreetingController extends Controller
 
         $entah = new \App\Http\Controllers\MessagesController;
         $entah->postMsg([
-            'type' => 'image',
+            'type' => 'text',
             'token' => $greet->sender,
-            'url' => $greet->image_bye,
             'number' => $greet->number,
-            'type' => 'image'
-        ], 'backend-send-media');
+            'text' => 'just hello'
+        ], 'backend-send-text');
 
 
         return back()->with('alert',[
