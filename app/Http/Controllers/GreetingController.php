@@ -103,36 +103,15 @@ class GreetingController extends Controller
             'status' => '2'
         ]);
 
-        $data = [
-            'api_key' => 'uuh33HHGq2yMxyxOFqfY3zgctLjNjp',
-            'sender' => $greet->sender,
-            'number' => $greet->number,
-            'url' => $greet->image_bye,
+        $entah = new \App\Http\Controllers\MessagesController;
+        $entah->postMsg([
             'type' => 'image',
-            'message' =>
-                str_replace(['{name}', '{number}','{nopol}'], [$greet->name, $greet->number,$greet->jenis_motor], $greet->templates->templateGoodBye),
-        ];
+            'token' => $greet->sender,
+            'url' => $greet->image_bye,
+            'number' => $greet->number,
+            'type' => 'image'
+        ], 'backend-send-media');
 
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => env('WA_URL_SERVER').'/send-media',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => json_encode($data),
-            CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json'
-            ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
 
         return back()->with('alert',[
             'type' => 'success',
