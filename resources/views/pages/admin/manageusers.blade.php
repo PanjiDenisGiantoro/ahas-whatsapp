@@ -59,7 +59,7 @@
                                         <tr>
                                             <td>{{$user->username}}</td>
                                             <td>{{$user->email}}</td>
-                                            <td>{{$user->kotas->name}}</td>
+                                            <td>{{$user->kotas?->name ?? '-'}}</td>
                                             <td>{{$user->nama_ahas ?? ''}}</td>
                                             <td>{{$user->kode_ahas ?? ''}}</td>
                                             <td>{{$user->total_device}}</td>
