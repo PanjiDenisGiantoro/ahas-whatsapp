@@ -63,7 +63,7 @@ class GreetingController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://awas.proud-it.com/send-media',
+            CURLOPT_URL => env('WA_URL_SERVER').'/send-media',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
