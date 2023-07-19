@@ -63,9 +63,9 @@ class GreetingController extends Controller
             // send with media
             $entah->postMsg([
                 'type' => "image", 
-                'token' => "6282128350067", 
+                'token' => $greet->sender, 
                 'url' => $greet->image_greeting, 
-                'number' => "6289627654005", 
+                'number' => $greet->number, 
                 'caption' => str_replace(['{name}', '{number}','{nopol}'], [$greet->name, $greet->number,$greet->jenis_motor], $template->templateMessage), 
                 'fileName' => pathinfo($greet->image_greeting, PATHINFO_FILENAME)
             ], 'backend-send-media');
@@ -108,9 +108,9 @@ class GreetingController extends Controller
             // send with media
             $entah->postMsg([
                 'type' => "image", 
-                'token' => "6282128350067", 
+                'token' => $greet->sender, 
                 'url' => $greet->image_bye,
-                'number' => "6289627654005", 
+                'number' => $greet->number, 
                 'caption' => str_replace(['{name}', '{number}','{nopol}'], [$greet->name, $greet->number,$greet->jenis_motor], $greet->templates->templateGoodBye), 
                 'fileName' => pathinfo($greet->image_greeting, PATHINFO_FILENAME)
             ], 'backend-send-media');
