@@ -14,7 +14,12 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        Commands\ScheduleCron::class
+        Commands\blast::class,
+        Commands\CheckSubscription::class,
+        Commands\checkValidNumber::class,
+        Commands\DemoCron::class,
+        Commands\ScheduleCron::class,
+        Commands\StartBlast::class
     ];
     protected function schedule(Schedule $schedule)
     {
@@ -22,6 +27,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('subscription:check')->daily();
         $schedule->command('start:blast')->everyMinute();
         $schedule->command('demo:cron')->everyMinute();
+        $schedule->command('schedule:blast')->everyMinute();
+        $schedule->command('check:wavalidnumber')->daily();
       //  $schedule->command('schedule:blast')->everyMinute();
     }
 

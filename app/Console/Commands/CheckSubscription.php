@@ -56,7 +56,7 @@ class CheckSubscription extends Command
                 }
                 rmdir($path); // delete folder
               }
-              $number->status = 'Disconnected';
+              $number->status = 'Disconnect';
                 $number->save();
                
                

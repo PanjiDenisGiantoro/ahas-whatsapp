@@ -51,8 +51,7 @@ class blast extends Command
                 ->whereStatus('waiting')
                 ->with('blasts')
                 ->get();
-            Log:
-            info($data);
+            Log::info($data);
 
             foreach ($data as $d) {
                 $blasts = $d->blasts;
