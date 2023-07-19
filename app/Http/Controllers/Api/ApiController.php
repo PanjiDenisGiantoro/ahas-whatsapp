@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Number;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
 class ApiController extends Controller
 {
-    
-    
+
+
 
     // public function messageText(Request $request){
     //     $token = $request->session()->token();
@@ -39,22 +40,26 @@ class ApiController extends Controller
     //      }
     //     $number->messages_sent += 1;
     //     $number->save();
-        
+
     //     return response()->json([
     //         'status' => true ,
     //         'data' => $sendMessage->data,
     //     ],Response::HTTP_OK);
-        
-    
+
+
     // }
-    
+
     public function messageText(Request $request)
     {
+
+        $contact = Contact::where('number',$request->number)->first();
+        $template = ["{id}", "{user_id}", "{tag_id}", "{name}", "{number}", "{status_valid}", "{created_at}", "{updated_at}", "{nama_ahas}", "{sub_area}", "{bulan}", "{jenis_kpb}", "{jenis_data}", "{no_ahas}", "{tanggal_expired}", "{tanggal_lahir}", "{deskripsi}", "{no_mesin}", "{KM}"];
+        $contactTemplate   = [$contact->id, $contact->user_id, $contact->tag_id, $contact->name, $contact->number, $contact->status_valid, $contact->created_at, $contact->updated_at, $contact->nama_ahas, $contact->sub_area, $contact->bulan, $contact->jenis_kpb, $contact->jenis_data, $contact->no_ahas, $contact->tanggal_expired, $contact->tanggal_lahir, $contact->deskripsi, $contact->no_mesin, $contact->KM];
 
         $data = [
             'token' => $request->sender,
             'number' => $request->number,
-            'text' => $request->message
+            'text' => str_replace($template, $contactTemplate, $request->message)
         ];
         $number = Number::whereBody($request->sender)->first();
         if ($number->status == 'Disconnect') {
@@ -83,12 +88,12 @@ class ApiController extends Controller
 
 
     public function messageMedia(Request $request){
-       
+
         if(!isset($request->url) || !isset($request->type)){
-         return response()->json([
-             'status' => false ,
-             'msg' => 'Wrong parameters!',
-         ],Response::HTTP_BAD_REQUEST);
+            return response()->json([
+                'status' => false ,
+                'msg' => 'Wrong parameters!',
+            ],Response::HTTP_BAD_REQUEST);
         }
         if(!in_array($request->type,['image','video','audio','pdf','xls','xlsx','doc','docx','zip'])){
             return response()->json([
@@ -96,6 +101,10 @@ class ApiController extends Controller
                 'msg' => 'Invalid type of media!',
             ],Response::HTTP_BAD_REQUEST);
         }
+        $contact = Contact::where('number',$request->number)->first();
+        $template = ["{id}", "{user_id}", "{tag_id}", "{name}", "{number}", "{status_valid}", "{created_at}", "{updated_at}", "{nama_ahas}", "{sub_area}", "{bulan}", "{jenis_kpb}", "{jenis_data}", "{no_ahas}", "{tanggal_expired}", "{tanggal_lahir}", "{deskripsi}", "{no_mesin}", "{KM}"];
+        $contactTemplate   = [$contact->id, $contact->user_id, $contact->tag_id, $contact->name, $contact->number, $contact->status_valid, $contact->created_at, $contact->updated_at, $contact->nama_ahas, $contact->sub_area, $contact->bulan, $contact->jenis_kpb, $contact->jenis_data, $contact->no_ahas, $contact->tanggal_expired, $contact->tanggal_lahir, $contact->deskripsi, $contact->no_mesin, $contact->KM];
+
         $url = $request->url;
         $fileName = pathinfo($url, PATHINFO_FILENAME);
         $data = [
@@ -103,7 +112,7 @@ class ApiController extends Controller
             'token' => $request->sender,
             'url' => $request->url,
             'number' => $request->number,
-            'caption' => $request->message,
+            'caption' => str_replace($template, $contactTemplate, $request->message),
             'fileName' => $fileName,
             'type' => $request->type
         ];
@@ -118,20 +127,20 @@ class ApiController extends Controller
         $number->messages_sent += 1;
         $number->save();
         return response()->json(['status' => true, 'data' => $sendMessage->data]);
-    
-       
-     
-     }
-  
 
 
-     public function messageButton(Request $request){
-       
+
+    }
+
+
+
+    public function messageButton(Request $request){
+
         if(!isset($request->button1) || !isset($request->footer)){
-         return response()->json([
-             'status' => false ,
-             'msg' => 'Wrong parameterss!',
-         ],Response::HTTP_BAD_REQUEST);
+            return response()->json([
+                'status' => false ,
+                'msg' => 'Wrong parameterss!',
+            ],Response::HTTP_BAD_REQUEST);
         }
 
         $buttons = [];
@@ -142,13 +151,16 @@ class ApiController extends Controller
         if(isset($request->button3)){
             $buttons[] = ['displayText' => $request->button3];
         }
-           
+
+        $contact = Contact::where('number',$request->number)->first();
+        $template = ["{id}", "{user_id}", "{tag_id}", "{name}", "{number}", "{status_valid}", "{created_at}", "{updated_at}", "{nama_ahas}", "{sub_area}", "{bulan}", "{jenis_kpb}", "{jenis_data}", "{no_ahas}", "{tanggal_expired}", "{tanggal_lahir}", "{deskripsi}", "{no_mesin}", "{KM}"];
+        $contactTemplate   = [$contact->id, $contact->user_id, $contact->tag_id, $contact->name, $contact->number, $contact->status_valid, $contact->created_at, $contact->updated_at, $contact->nama_ahas, $contact->sub_area, $contact->bulan, $contact->jenis_kpb, $contact->jenis_data, $contact->no_ahas, $contact->tanggal_expired, $contact->tanggal_lahir, $contact->deskripsi, $contact->no_mesin, $contact->KM];
 
         $data = [
             'token' => $request->sender,
             'number' => $request->number,
             'button' => json_encode($buttons),
-            'message' => $request->message,
+            'message' => str_replace($template, $contactTemplate, $request->message),
             'footer' => $request->footer ,
             'image' => $request->image ?? '',
         ];
@@ -163,25 +175,25 @@ class ApiController extends Controller
         $number->messages_sent += 1;
         $number->save();
         return response()->json(['status' => true, 'data' => $sendMessage->data]);
-       
-        
-     }
- 
-     public function messageTemplate(Request $request){
-       if(!$request->has('template1') || !$request->has('footer')){
-           return response()->json([
-               'status' => false ,
-               'msg' => 'Wrong parameters!',
-           ],Response::HTTP_BAD_REQUEST);
-       }
+
+
+    }
+
+    public function messageTemplate(Request $request){
+        if(!$request->has('template1') || !$request->has('footer')){
+            return response()->json([
+                'status' => false ,
+                'msg' => 'Wrong parameters!',
+            ],Response::HTTP_BAD_REQUEST);
+        }
 
         $templates = [];
         $makeTemplate1 = $this->createTemplate($request->template1,1);
         if(!$makeTemplate1['status']){
-           return response()->json([
-              'status' => false ,
-              'msg' => $makeTemplate1['msg'],
-           ],Response::HTTP_BAD_REQUEST);
+            return response()->json([
+                'status' => false ,
+                'msg' => $makeTemplate1['msg'],
+            ],Response::HTTP_BAD_REQUEST);
         } else {
             $templates[] = $makeTemplate1['data'];
         }
@@ -207,8 +219,8 @@ class ApiController extends Controller
                 $templates[] = $makeTemplate3['data'];
             }
         }
-      
-      
+
+
         $data = [
             'token' => $request->sender,
             'number' => $request->number,
@@ -229,9 +241,9 @@ class ApiController extends Controller
         $number->messages_sent += 1;
         $number->save();
         return response()->json(['status' => true, 'data' => $sendMessage->data],Response::HTTP_OK);
-     }
+    }
 
-     public function messageList(Request $request){
+    public function messageList(Request $request){
         if(!$request->has('list1') || !$request->has('footer') || !$request->has('title') || !$request->has('name')){
             return response()->json([
                 'status' => false ,
@@ -245,14 +257,14 @@ class ApiController extends Controller
         $section['rows'][] = [
             'title' => $request->list1,
             'rowId' => 'id1',
-            'description' => '' 
+            'description' => ''
         ];
         if($request->has('list2')){
             $i++;
             $section['rows'][] = [
                 'title' => $request->list2,
                 'rowId' => 'id2',
-                'description' => '' 
+                'description' => ''
             ];
         }
         if($request->has('list3')){
@@ -260,7 +272,7 @@ class ApiController extends Controller
             $section['rows'][] = [
                 'title' => $request->list3,
                 'rowId' => 'id3',
-                'description' => '' 
+                'description' => ''
             ];
         }
         if($request->has('list4')){
@@ -268,7 +280,7 @@ class ApiController extends Controller
             $section['rows'][] = [
                 'title' => $request->list4,
                 'rowId' => 'id4',
-                'description' => '' 
+                'description' => ''
             ];
         }
         if($request->has('list5')){
@@ -276,10 +288,10 @@ class ApiController extends Controller
             $section['rows'][] = [
                 'title' => $request->list5,
                 'rowId' => 'id5',
-                'description' => '' 
+                'description' => ''
             ];
         }
-       
+
 
         $data = [
             'token' => $request->sender,
@@ -290,7 +302,7 @@ class ApiController extends Controller
             'title' => $request->title,
             'buttonText' => $request->name,
         ];
-       
+
         $number = Number::whereBody($request->sender)->first();
         if ($number->status == 'Disconnect') {
             return response()->json(['status' => false, 'msg' => 'Sender is disconnected'], Response::HTTP_BAD_REQUEST);
@@ -303,9 +315,9 @@ class ApiController extends Controller
         $number->save();
         return response()->json(['status' => true, 'data' => $sendMessage->data],Response::HTTP_OK);
 
-     
-       
-     }
+
+
+    }
 
 
     public function createTemplate($template,$no){
@@ -315,11 +327,11 @@ class ApiController extends Controller
             $type = explode('|', $template)[0] . 'Button';
             $text = explode('|', $template)[1];
             $urlOrNumber = explode('|', $template)[2];
-    
+
             if (!in_array($type, $allowType)) {
                 return ['status' => false, 'msg' => "Wrong template $no type!"];
             }
-    
+
             $ty = explode('|', $template)[0];
             $type = $ty ==  'id' ? 'quickReplyButton' : $type;
             if ($ty == 'url') {
@@ -330,7 +342,7 @@ class ApiController extends Controller
                 $typePurpose = 'id';
             }
 
-             
+
 
             $data = ["index" => $no, $type => ["displayText" => $text, $typePurpose => $urlOrNumber]];
             return ['status' => true, 'data' => $data];
@@ -340,7 +352,7 @@ class ApiController extends Controller
                 'msg' => "The template $no is not valid",
             ];
         }
-        
+
     }
 
 
@@ -370,7 +382,7 @@ class ApiController extends Controller
                 'msg' => 'Wrong parameters!',
             ],Response::HTTP_BAD_REQUEST);
         }
-       // check user by api key
+        // check user by api key
         $user = User::whereApiKey($request->api_key)->first();
         if($user->is_expired_subscription){
             return response()->json([
@@ -401,9 +413,9 @@ class ApiController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['status' => false, 'msg' => 'Make sure your server Node already running!'],Response::HTTP_BAD_REQUEST);
         }
-     // send respon json from post
-     return response()->json(json_decode($post->body()),Response::HTTP_OK);
-        
-       
+        // send respon json from post
+        return response()->json(json_decode($post->body()),Response::HTTP_OK);
+
+
     }
 }
