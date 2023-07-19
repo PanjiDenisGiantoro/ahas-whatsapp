@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\blast::class,
         Commands\CheckSubscription::class,
         Commands\checkValidNumber::class,
-        Commands\DemoCron::class,
+//        Commands\DemoCron::class,
         Commands\ScheduleCron::class,
         Commands\StartBlast::class
     ];
