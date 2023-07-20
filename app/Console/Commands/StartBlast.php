@@ -44,9 +44,8 @@ class StartBlast extends Command
      */
     public function handle()
     {
-        $waitingCampaigns = Campaign::where('status', 'waiting')
-            ->orWhere('status', 'processing')
-            ->where('schedule', '<=', now())
+        $waitingCampaigns = Campaign::where('schedule', '<=', now())
+            ->whereIn('status', ['processing', 'waiting'])
             ->get();
 
         foreach ($waitingCampaigns as $campaign)
