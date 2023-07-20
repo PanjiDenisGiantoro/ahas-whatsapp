@@ -26,9 +26,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('schedule:cron')->everyMinute();
         $schedule->command('subscription:check')->daily();
         $schedule->command('start:blast')->everyMinute();
-        $schedule->command('demo:cron')->everyMinute();
-        $schedule->command('schedule:blast')->everyMinute();
-        $schedule->command('check:wavalidnumber')->daily();
+        // $schedule->command('demo:cron')->everyMinute();
+        // $schedule->command('check:wavalidnumber')->daily();
       //  $schedule->command('schedule:blast')->everyMinute();
     }
 
