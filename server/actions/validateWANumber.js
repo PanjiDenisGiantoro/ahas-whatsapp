@@ -14,15 +14,19 @@ module.exports = async (socket, tag_id) => {
     let contacts = await contactEntity.getByTag(tag_id)
     let contactCount = contacts.length
 
-
-    for(let i = 0; i < contactCount; i++){
-        socket.emit('validateNumberProgress', {
-            total: contactCount,
-            progress: parseInt(i) + 1
-        })
-        
-        let isValidNumber = await wa.isExists(contacts[i].number)
-        await contactEntity.updateValidStatus(contacts[i].id, isValidNumber)
+    try {
+        for(let i = 0; i < contactCount; i++){
+            socket.emit('validateNumberProgress', {
+                total: contactCount,
+                progress: parseInt(i) + 1
+            })
+            
+            let isValidNumber = await wa.isExists(contacts[i].number)
+            await contactEntity.updateValidStatus(contacts[i].id, isValidNumber)
+        }
+    } catch (error) {
+        socket.emit('validateNumberError')
     }
+
     socket.emit('validateNumberDone')
 }

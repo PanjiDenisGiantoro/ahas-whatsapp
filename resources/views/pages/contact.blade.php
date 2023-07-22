@@ -316,6 +316,15 @@
             alert('Selesai')
             window.location.reload()
         })
+
+        socket.on('validateNumberError', () => {
+            $("#validate-modal #progress").text('Reconnecting ...')
+            $.get("{{ url('/reconnect-wa') }}", function(){
+                setTimeout(function(){
+                    socket.emit('validateWANumber', tag)
+                }, 2000)
+            })
+        })
     </script>
     <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
 
