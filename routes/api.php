@@ -36,5 +36,10 @@ Route::middleware('checkApiKey')->group(function () {
 });
 Route::post('/generate-qr', [ApiController::class,'generateQr']);
 
+Route::get('/reconnect-wa', function(){
+    exec("pm2 restart 0");
+    return response()->json(['message' => 'oke']);
+});
+
 
 
