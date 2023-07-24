@@ -291,6 +291,8 @@
             transports: ['websocket', 'polling', 'flashsocket']
         })
 
+        var errorOccured = false
+
         $(document).ready(function () {
             $('#example').DataTable({
                 order: []
@@ -313,15 +315,20 @@
         })
 
         socket.on('validateNumberDone', () => {
+            if(errorOccured)
+                return
+
             alert('Selesai')
             window.location.reload()
         })
 
         socket.on('validateNumberError', () => {
+            errorOccured = true
             $("#validate-modal #progress").text('Reconnecting ...')
             $.get("{{ url('/reconnect-wa') }}", function(){
                 setTimeout(function(){
                     socket.emit('validateWANumber', tag)
+                    errorOccured = false
                 }, 2000)
             })
         })
